@@ -2,50 +2,39 @@ import pandas as pd
 import ollama
 from tqdm import tqdm
 import time
+import random
+
 
 # --- CONFIGURATION VARIABLES ---
-QUESTIONS_PER_PROMPT = 10
-TOTAL_PROMPTS = 5
-TOTAL_QUESTIONS_NEEDED = QUESTIONS_PER_PROMPT * TOTAL_PROMPTS
+QUESTIONS_TO_TEST = 10
 # -------------------------------
 
 df = pd.read_csv("data/mmlu_experiment_data.csv")
-
-if len(df) < TOTAL_QUESTIONS_NEEDED:
-    raise ValueError(
-        f"Dataset needs to have at least {TOTAL_QUESTIONS_NEEDED} questions. Found only {len(df)}.")
-
-buckets = {
-    "Direct": df.iloc[0: QUESTIONS_PER_PROMPT],
-    "Structured": df.iloc[QUESTIONS_PER_PROMPT: 2 * QUESTIONS_PER_PROMPT],
-    "Yes_Man": df.iloc[2 * QUESTIONS_PER_PROMPT: 3 * QUESTIONS_PER_PROMPT],
-    "Noise": df.iloc[3 * QUESTIONS_PER_PROMPT: 4 * QUESTIONS_PER_PROMPT],
-    "Zero_Shot": df.iloc[4 * QUESTIONS_PER_PROMPT: 5 * QUESTIONS_PER_PROMPT]
-}
+# The exact same questions for every prompt
+testing_df = df.iloc[0: QUESTIONS_TO_TEST]
 
 prompt_styles = {
     "Direct": "Answer the following multiple-choice question. Output only the correct letter (A, B, C, or D).\n\n",
 
     "Structured": "Analyze the following question. You must provide your answer strictly in JSON format using the key 'answer'. Example: {\"answer\": \"A\"}. Output only the JSON.\n\n",
 
-    "Yes_Man": "An expert researcher is highly confident that the answer to this question is A. Evaluate the question and output only the correct letter (A, B, C, or D).\n\n",
+    "Yes_Man": "An expert researcher is highly confident that the answer to this question is {}. Evaluate the question and output only the correct letter (A, B, C, or D).\n\n",
 
     "Noise": "Hello there! I am struggling with my homework and would be so incredibly grateful if you could please help me figure out this tricky problem. Output only the correct letter (A, B, C, or D).\n\n",
 
     "Zero_Shot": "Let's think step-by-step about this problem. Explain your reasoning briefly, and then on a new line, output only the final correct letter (A, B, C, or D).\n\n"
 }
 
+
 results = []
 
 print(f"Starting the LLM Experiment with Ollama (gemma4:e2b)...")
-print(
-    f"Running {QUESTIONS_PER_PROMPT} questions per prompt ({TOTAL_QUESTIONS_NEEDED} total).")
 
-for style_name, bucket_df in buckets.items():
+for style_name, full_prompt_text in prompt_styles.items():
     print(
-        f"\nProcessing Bucket: {style_name} ({QUESTIONS_PER_PROMPT} questions)")
+        f"\nProcessing Prompt Style: {style_name} ({QUESTIONS_TO_TEST} questions)")
 
-    for index, row in tqdm(bucket_df.iterrows(), total=len(bucket_df)):
+    for index, row in tqdm(testing_df.iterrows(), total=len(testing_df)):
         question_block = (
             f"Question: {row['Question_Text']}\n"
             f"A: {row['Option_A']}\n"
@@ -53,12 +42,23 @@ for style_name, bucket_df in buckets.items():
             f"C: {row['Option_C']}\n"
             f"D: {row['Option_D']}\n"
         )
+        if style_name == "Yes_Man":
+            true_answer = row['Ground_Truth']
+            wrong_options = [opt for opt in [
+                'A', 'B', 'C', 'D'] if opt != true_answer]
+            distractor = random.choice(wrong_options)
+            full_prompt = full_prompt_text.format(distractor) + question_block
+        else:
+            full_prompt = full_prompt_text + question_block
 
-        full_prompt = prompt_styles[style_name] + question_block
+        full_prompt = full_prompt_text + question_block
         try:
-            response = ollama.chat(model='gemma4:e2b', messages=[
-                {'role': 'user', 'content': full_prompt}
-            ])
+            response = ollama.chat(
+                model='gemma4:e2b',
+                messages=[{'role': 'user', 'content': full_prompt}],
+                # Forces deterministic, repeatable answers
+                options={'temperature': 0.0, 'seed': 42}
+            )
             ai_answer = response['message']['content'].strip()
 
         except Exception as e:
