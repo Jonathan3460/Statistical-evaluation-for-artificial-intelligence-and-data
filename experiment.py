@@ -7,6 +7,7 @@ import random
 
 # --- CONFIGURATION VARIABLES ---
 QUESTIONS_TO_TEST = 10
+random.seed(42)
 # -------------------------------
 
 df = pd.read_csv("data/mmlu_experiment_data.csv")
@@ -50,8 +51,6 @@ for style_name, full_prompt_text in prompt_styles.items():
             full_prompt = full_prompt_text.format(distractor) + question_block
         else:
             full_prompt = full_prompt_text + question_block
-
-        full_prompt = full_prompt_text + question_block
         try:
             response = ollama.chat(
                 model='gemma4:e2b',
