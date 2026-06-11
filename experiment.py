@@ -14,7 +14,7 @@ df = pd.read_csv("data/mmlu_experiment_data.csv")
 testing_df = df.iloc[0: QUESTIONS_TO_TEST]
 
 prompt_styles = {
-    "Baisline": "Answer the following question. Output only the correct letter (A, B, C, or D).\n\n",
+    "Baseline": "Answer the following question. Output only the correct letter (A, B, C, or D).\n\n",
 
     "Structured": "Answer the following question. You must provide your answer strictly in JSON format using the key 'answer'. Example: {\"answer\": \"A\"}. Output only the JSON.\n\n",
 
@@ -22,7 +22,7 @@ prompt_styles = {
 
     "Noise": "Hello there! I am struggling with my homework and would be so incredibly grateful if you could please help me figure out this tricky question. Output only the correct letter (A, B, C, or D).\n\n",
 
-    "Zero_Shot": "Let's think step-by-step about this question. Explain your reasoning briefly, and then on a new line, output only the final correct letter (A, B, C, or D).\n\n"
+    "Zero_Shot_CoT": "Let's think step-by-step about this question. Explain your reasoning briefly, and then on a new line, output only the final correct letter (A, B, C, or D).\n\n"
 }
 
 
