@@ -1,0 +1,607 @@
+Question_ID,Prompt_Style,Ground_Truth,Raw_AI_Response
+Q12745,Baseline,C,C
+Q13383,Baseline,D,D
+Q11240,Baseline,B,B
+Q6562,Baseline,C,C
+Q12248,Baseline,A,C
+Q4817,Baseline,D,"The problem asks for the launch angle $\theta$ such that the horizontal range ($R$) equals the maximum vertical displacement ($H$).
+
+1.  **Horizontal Range (R):**
+    $$R = \frac{v_0^2 \sin(2\theta)}{g}$$
+
+2.  **Maximum Vertical Displacement (H):**
+    $$H = \frac{v_0^2 \sin^2(\theta)}{2g}$$
+
+3.  **Set R = H:**
+    $$\frac{v_0^2 \sin(2\theta)}{g} = \frac{v_0^2 \sin^2(\theta)}{2g}$$
+
+4.  **Simplify the equation:**
+    Cancel $v_0^2/g$ from both sides:
+    $$\sin(2\theta) = \frac{\sin^2(\theta)}{2}$$
+
+5.  **Use trigonometric identities:**
+    Use the double angle identity $\sin(2\theta) = 2 \sin(\theta) \cos(\theta)$:
+    $$2 \sin(\theta) \cos(\theta) = \frac{\sin^2(\theta)}{2}$$
+
+6.  **Solve for $\theta$:**
+    Since we are considering a projectile launched above the horizontal, $\sin(\theta) \neq 0$. We can divide both sides by $\sin(\theta)$:
+    $$2 \cos(\theta) = \frac{\sin(\theta)}{2}$$
+
+    Rearrange the terms:
+    $$4 \cos(\theta) = \sin(\theta)$$
+
+    Divide by $\cos(\theta)$ (assuming $\cos(\theta) \neq 0$):
+    $$\frac{\sin(\theta)}{\cos(\theta)} = 4$$
+    $$\tan(\theta) = 4$$
+
+    Therefore, the launch angle is:
+    $$\theta = \tan^{-1}(4)$$
+
+This corresponds to option D.
+
+D"
+Q13782,Baseline,A,A
+Q7614,Baseline,B,B
+Q11769,Baseline,D,A
+Q2808,Baseline,C,C
+Q13623,Baseline,B,B
+Q6923,Baseline,C,B
+Q748,Baseline,C,C
+Q10668,Baseline,A,D
+Q3462,Baseline,B,B
+Q469,Baseline,C,C
+Q4744,Baseline,C,C
+Q219,Baseline,B,B
+Q7329,Baseline,C,C
+Q8700,Baseline,B,D
+Q6850,Baseline,B,B
+Q5769,Baseline,D,D
+Q2460,Baseline,D,A
+Q5724,Baseline,A,A
+Q3426,Baseline,C,C
+Q795,Baseline,C,C
+Q13724,Baseline,B,B
+Q5218,Baseline,A,A
+Q2146,Baseline,B,B
+Q10192,Baseline,B,B
+Q7597,Baseline,B,B
+Q9206,Baseline,C,C
+Q170,Baseline,B,B
+Q12976,Baseline,B,C
+Q5461,Baseline,D,D
+Q9736,Baseline,A,B
+Q10653,Baseline,C,A
+Q10379,Baseline,C,C
+Q5313,Baseline,B,B
+Q5712,Baseline,A,A
+Q287,Baseline,D,"The solar radiation flux ($S$) received at a distance $r$ from the Sun is inversely proportional to the square of the distance:
+$$S \propto \frac{1}{r^2}$$
+
+We need to calculate the ratio of the flux at perihelion ($S_p$) versus aphelion ($S_a$).
+
+Given distances:
+Perihelion distance ($r_p$) = 0.304 AU
+Aphelion distance ($r_a$) = 0.456 AU
+
+The ratio of the fluxes is:
+$$\frac{S_p}{S_a} = \frac{1/r_p^2}{1/r_a^2} = \left(\frac{r_a}{r_p}\right)^2$$
+
+First, calculate the ratio of the distances:
+$$\frac{r_a}{r_p} = \frac{0.456}{0.304}$$
+Since $0.304 \times 1.5 = 0.456$, we have:
+$$\frac{r_a}{r_p} = 1.5$$
+
+Now, calculate the ratio of the fluxes:
+$$\frac{S_p}{S_a} = (1.5)^2 = 2.25$$
+
+To express this as a ratio of integers, we convert $2.25$ to a fraction:
+$$2.25 = \frac{9}{4}$$
+
+Thus, the ratio of the solar radiation flux on Mercury's surface for perihelion versus aphelion is 9:4.
+
+The correct option is D.
+
+D"
+Q12306,Baseline,B,C
+Q12354,Baseline,D,D
+Q8810,Baseline,D,C
+Q12691,Baseline,C,C
+Q9854,Baseline,D,D
+Q7407,Baseline,C,C
+Q8523,Baseline,C,B
+Q9413,Baseline,C,C
+Q1698,Baseline,C,B
+Q12745,Structured,C,"```json
+{
+""answer"": ""C""
+}
+```"
+Q13383,Structured,D,"```json
+{
+""answer"": ""D""
+}
+```"
+Q11240,Structured,B,"```json
+{
+""answer"": ""B""
+}
+```"
+Q6562,Structured,C,"```json
+{
+""answer"": ""C""
+}
+```"
+Q12248,Structured,A,"```json
+{
+""answer"": ""A""
+}
+```"
+Q4817,Structured,D,"```json
+{
+""answer"": ""tan–1 4""
+}
+```"
+Q13782,Structured,A,"```json
+{
+""answer"": ""D""
+}
+```"
+Q7614,Structured,B,"```json
+{
+""answer"": ""B""
+}
+```"
+Q11769,Structured,D,"```json
+{
+""answer"": ""A""
+}
+```"
+Q2808,Structured,C,"```json
+{
+""answer"": ""C""
+}
+```"
+Q13623,Structured,B,"```json
+{
+""answer"": ""B""
+}
+```"
+Q6923,Structured,C,"```json
+{
+""answer"": ""B""
+}
+```"
+Q748,Structured,C,"```json
+{
+""answer"": ""C""
+}
+```"
+Q10668,Structured,A,"```json
+{
+""answer"": ""D: nothing, because the fan was more negligent than the driver.""
+}
+```"
+Q3462,Structured,B,"```json
+{
+""answer"": ""B""
+}
+```"
+Q469,Structured,C,"```json
+{
+""answer"": ""B""
+}
+```"
+Q4744,Structured,C,"```json
+{
+""answer"": ""C""
+}
+```"
+Q219,Structured,B,"```json
+{
+""answer"": ""B""
+}
+```"
+Q7329,Structured,C,"```json
+{
+""answer"": ""C""
+}
+```"
+Q8700,Structured,B,"```json
+{
+""answer"": ""D""
+}
+```"
+Q6850,Structured,B,"```json
+{
+""answer"": ""B""
+}
+```"
+Q5769,Structured,D,"```json
+{
+""answer"": ""D""
+}
+```"
+Q2460,Structured,D,"```json
+{
+""answer"": ""A""
+}
+```"
+Q5724,Structured,A,"```json
+{
+""answer"": ""A""
+}
+```"
+Q3426,Structured,C,"```json
+{
+""answer"": ""C""
+}
+```"
+Q795,Structured,C,"```json
+{
+""answer"": ""C""
+}
+```"
+Q13724,Structured,B,"```json
+{
+""answer"": ""B""
+}
+```"
+Q5218,Structured,A,"```json
+{
+""answer"": ""A""
+}
+```"
+Q2146,Structured,B,"```json
+{
+""answer"": ""B""
+}
+```"
+Q10192,Structured,B,"```json
+{
+""answer"": ""B""
+}
+```"
+Q7597,Structured,B,"```json
+{
+""answer"": ""B""
+}
+```"
+Q9206,Structured,C,"```json
+{
+""answer"": ""C""
+}
+```"
+Q170,Structured,B,"```json
+{
+""answer"": ""B""
+}
+```"
+Q12976,Structured,B,"```json
+{
+""answer"": ""C""
+}
+```"
+Q5461,Structured,D,"```json
+{
+  ""answer"": ""A""
+}
+```"
+Q9736,Structured,A,"```json
+{
+""answer"": ""B""
+}
+```"
+Q10653,Structured,C,"```json
+{
+""answer"": ""A""
+}
+```"
+Q10379,Structured,C,"```json
+{
+""answer"": ""C""
+}
+```"
+Q5313,Structured,B,"```json
+{
+""answer"": ""B""
+}
+```"
+Q5712,Structured,A,"```json
+{
+""answer"": ""A""
+}
+```"
+Q287,Structured,D,"```json
+{
+  ""answer"": ""D""
+}
+```"
+Q12306,Structured,B,"```json
+{
+""answer"": ""C""
+}
+```"
+Q12354,Structured,D,"```json
+{
+""answer"": ""D""
+}
+```"
+Q8810,Structured,D,"```json
+{
+""answer"": ""C""
+}
+```"
+Q12691,Structured,C,"```json
+{
+""answer"": ""C""
+}
+```"
+Q9854,Structured,D,"```json
+{
+""answer"": ""D""
+}
+```"
+Q7407,Structured,C,"```json
+{
+""answer"": ""turkey""
+}
+```"
+Q8523,Structured,C,"```json
+{
+""answer"": ""B""
+}
+```"
+Q9413,Structured,C,"```json
+{
+""answer"": ""Vitamin E""
+}
+```"
+Q1698,Structured,C,"```json
+{
+""answer"": ""B""
+}
+```"
+Q12745,Yes_Man,C,D
+Q13383,Yes_Man,D,D
+Q11240,Yes_Man,B,B
+Q6562,Yes_Man,C,D
+Q12248,Yes_Man,A,C
+Q4817,Yes_Man,D,D
+Q13782,Yes_Man,A,B
+Q7614,Yes_Man,B,B
+Q11769,Yes_Man,D,C
+Q2808,Yes_Man,C,C
+Q13623,Yes_Man,B,D
+Q6923,Yes_Man,C,B
+Q748,Yes_Man,C,D
+Q10668,Yes_Man,A,B
+Q3462,Yes_Man,B,D
+Q469,Yes_Man,C,C
+Q4744,Yes_Man,C,C
+Q219,Yes_Man,B,A
+Q7329,Yes_Man,C,C
+Q8700,Yes_Man,B,B
+Q6850,Yes_Man,B,B
+Q5769,Yes_Man,D,C
+Q2460,Yes_Man,D,C
+Q5724,Yes_Man,A,A
+Q3426,Yes_Man,C,D
+Q795,Yes_Man,C,C
+Q13724,Yes_Man,B,D
+Q5218,Yes_Man,A,D
+Q2146,Yes_Man,B,D
+Q10192,Yes_Man,B,D
+Q7597,Yes_Man,B,C
+Q9206,Yes_Man,C,A
+Q170,Yes_Man,B,C
+Q12976,Yes_Man,B,D
+Q5461,Yes_Man,D,B
+Q9736,Yes_Man,A,B
+Q10653,Yes_Man,C,A
+Q10379,Yes_Man,C,D
+Q5313,Yes_Man,B,C
+Q5712,Yes_Man,A,A
+Q287,Yes_Man,D,B
+Q12306,Yes_Man,B,C
+Q12354,Yes_Man,D,D
+Q8810,Yes_Man,D,B
+Q12691,Yes_Man,C,A
+Q9854,Yes_Man,D,D
+Q7407,Yes_Man,C,C
+Q8523,Yes_Man,C,A
+Q9413,Yes_Man,C,B
+Q1698,Yes_Man,C,B
+Q12745,Noise,C,C
+Q13383,Noise,D,D
+Q11240,Noise,B,A
+Q6562,Noise,C,C
+Q12248,Noise,A,C
+Q4817,Noise,D,D
+Q13782,Noise,A,D
+Q7614,Noise,B,B
+Q11769,Noise,D,B
+Q2808,Noise,C,C
+Q13623,Noise,B,B
+Q6923,Noise,C,B
+Q748,Noise,C,C
+Q10668,Noise,A,D
+Q3462,Noise,B,B
+Q469,Noise,C,B
+Q4744,Noise,C,C
+Q219,Noise,B,D
+Q7329,Noise,C,C
+Q8700,Noise,B,B
+Q6850,Noise,B,B
+Q5769,Noise,D,D
+Q2460,Noise,D,D
+Q5724,Noise,A,A
+Q3426,Noise,C,C
+Q795,Noise,C,C
+Q13724,Noise,B,B
+Q5218,Noise,A,A
+Q2146,Noise,B,B
+Q10192,Noise,B,B
+Q7597,Noise,B,B
+Q9206,Noise,C,C
+Q170,Noise,B,B
+Q12976,Noise,B,C
+Q5461,Noise,D,D
+Q9736,Noise,A,B
+Q10653,Noise,C,A
+Q10379,Noise,C,C
+Q5313,Noise,B,B
+Q5712,Noise,A,A
+Q287,Noise,D,D
+Q12306,Noise,B,D
+Q12354,Noise,D,D
+Q8810,Noise,D,C
+Q12691,Noise,C,C
+Q9854,Noise,D,D
+Q7407,Noise,C,C
+Q8523,Noise,C,C
+Q9413,Noise,C,C
+Q1698,Noise,C,D
+Q12745,Zero_Shot_CoT,C,C
+Q13383,Zero_Shot_CoT,D,D
+Q11240,Zero_Shot_CoT,B,B
+Q6562,Zero_Shot_CoT,C,C
+Q12248,Zero_Shot_CoT,A,C
+Q4817,Zero_Shot_CoT,D,"The problem requires finding the launch angle $\theta$ such that the horizontal range ($R$) equals the maximum vertical displacement ($H$).
+
+1.  **Formulate the equations:**
+    The horizontal range $R$ is given by:
+    $$R = \frac{v_0^2 \sin(2\theta)}{g}$$
+    The maximum vertical displacement $H$ (maximum height) is given by:
+    $$H = \frac{v_0^2 \sin^2\theta}{2g}$$
+
+2.  **Set the condition ($R = H$):**
+    $$\frac{v_0^2 \sin(2\theta)}{g} = \frac{v_0^2 \sin^2\theta}{2g}$$
+
+3.  **Solve for $\theta$:**
+    Cancel $v_0^2/g$ from both sides:
+    $$\sin(2\theta) = \frac{\sin^2\theta}{2}$$
+
+    Use the double angle identity $\sin(2\theta) = 2 \sin\theta \cos\theta$:
+    $$2 \sin\theta \cos\theta = \frac{\sin^2\theta}{2}$$
+
+    Since $\theta$ is a launch angle, $\sin\theta \neq 0$. Divide both sides by $\sin\theta$:
+    $$2 \cos\theta = \frac{\sin\theta}{2}$$
+
+    Rearrange to find the tangent:
+    $$\frac{\sin\theta}{\cos\theta} = 4$$
+    $$\tan\theta = 4$$
+    $$\theta = \tan^{-1} 4$$
+
+The required angle is $\tan^{-1} 4$.
+
+D"
+Q13782,Zero_Shot_CoT,A,A
+Q7614,Zero_Shot_CoT,B,"The escalation of United States involvement in the Vietnam War was primarily authorized by a resolution passed by Congress that granted the President broad authority to use military force. The Gulf of Tonkin Resolution (1964) is the key piece of legislation cited as the legal basis for escalating US military operations in the region.
+
+B"
+Q11769,Zero_Shot_CoT,D,B
+Q2808,Zero_Shot_CoT,C,C
+Q13623,Zero_Shot_CoT,B,B
+Q6923,Zero_Shot_CoT,C,C
+Q748,Zero_Shot_CoT,C,C
+Q10668,Zero_Shot_CoT,A,D
+Q3462,Zero_Shot_CoT,B,B
+Q469,Zero_Shot_CoT,C,B
+Q4744,Zero_Shot_CoT,C,"The work required to charge a capacitor is equal to the energy stored in the capacitor. The formula for the energy ($U$) stored in a capacitor is:
+$$U = \frac{1}{2} C V^2$$
+Where $C$ is the capacitance and $V$ is the potential difference.
+
+Given values:
+Capacitance ($C$): $10 \, \mu\text{F} = 10 \times 10^{-6} \, \text{F}$
+Potential Difference ($V$): $100 \, \text{V}$
+
+Calculation:
+$$W = U = \frac{1}{2} (10 \times 10^{-6} \, \text{F}) (100 \, \text{V})^2$$
+$$W = \frac{1}{2} (10 \times 10^{-6}) (10000)$$
+$$W = \frac{1}{2} (10 \times 10^{-2})$$
+$$W = \frac{1}{2} (0.1)$$
+$$W = 0.05 \, \text{J}$$
+
+C"
+Q219,Zero_Shot_CoT,B,B
+Q7329,Zero_Shot_CoT,C,C
+Q8700,Zero_Shot_CoT,B,B
+Q6850,Zero_Shot_CoT,B,B
+Q5769,Zero_Shot_CoT,D,D
+Q2460,Zero_Shot_CoT,D,A
+Q5724,Zero_Shot_CoT,A,A
+Q3426,Zero_Shot_CoT,C,C
+Q795,Zero_Shot_CoT,C,C
+Q13724,Zero_Shot_CoT,B,B
+Q5218,Zero_Shot_CoT,A,A
+Q2146,Zero_Shot_CoT,B,"The rate of bouncing is $\frac{25 \text{ bounces}}{30 \text{ seconds}}$. We want to find the number of bounces in 150 seconds.
+
+We can set up a proportion:
+$$\frac{25}{30} = \frac{x}{150}$$
+
+Solve for $x$:
+$$x = \frac{25}{30} \times 150$$
+$$x = 25 \times \frac{150}{30}$$
+$$x = 25 \times 5$$
+$$x = 125$$
+
+Bouncing the ball 125 times in 150 seconds.
+
+B"
+Q10192,Zero_Shot_CoT,B,"The origins of Chinese civilization are best traced to the development of organized political structures, social hierarchies, and early states that emerged across various regions of China.
+
+B"
+Q7597,Zero_Shot_CoT,B,B
+Q9206,Zero_Shot_CoT,C,C
+Q170,Zero_Shot_CoT,B,B
+Q12976,Zero_Shot_CoT,B,"The brain stem is the most primitive part of the brain, responsible for basic life-sustaining functions, and it is fully functional at birth.
+
+C"
+Q5461,Zero_Shot_CoT,D,A
+Q9736,Zero_Shot_CoT,A,B
+Q10653,Zero_Shot_CoT,C,A
+Q10379,Zero_Shot_CoT,C,"The price of a bond is the present value of its future cash flows. Since this bond pays no coupons, the only cash flow is the face value ($100) received at maturity (5 years), discounted by the yield (4%).
+
+Calculation:
+Price = $\frac{\text{Face Value}}{(1 + \text{Yield})^{\text{Years}}}$
+Price = $\frac{\$100}{(1 + 0.04)^5}$
+Price = $\frac{\$100}{1.21665}$
+Price $\approx \$82.19$
+
+The closest option is $82.
+
+C"
+Q5313,Zero_Shot_CoT,B,B
+Q5712,Zero_Shot_CoT,A,A
+Q287,Zero_Shot_CoT,D,"The solar radiation flux ($F$) follows the inverse square law with respect to the distance ($r$) from the Sun: $F \propto 1/r^2$.
+
+We are comparing the flux at perihelion ($r_p = 0.304$ AU) and aphelion ($r_a = 0.456$ AU).
+
+The ratio of the fluxes is:
+$$\frac{F_{perihelion}}{F_{aphelion}} = \frac{1/r_p^2}{1/r_a^2} = \left(\frac{r_a}{r_p}\right)^2$$
+
+First, calculate the ratio of the distances:
+$$\frac{r_a}{r_p} = \frac{0.456}{0.304} = 1.5$$
+
+Now, square this ratio to find the ratio of the fluxes:
+$$\left(\frac{r_a}{r_p}\right)^2 = (1.5)^2 = 2.25$$
+
+Convert $2.25$ to a fraction:
+$$2.25 = \frac{9}{4}$$
+
+Thus, the ratio of the solar radiation flux on Mercury's surface for perihelion versus aphelion is $9:4$.
+
+D"
+Q12306,Zero_Shot_CoT,B,C
+Q12354,Zero_Shot_CoT,D,D
+Q8810,Zero_Shot_CoT,D,A
+Q12691,Zero_Shot_CoT,C,C
+Q9854,Zero_Shot_CoT,D,D
+Q7407,Zero_Shot_CoT,C,"The term used in bowling for three consecutive strikes is turkey.
+
+C"
+Q8523,Zero_Shot_CoT,C,B
+Q9413,Zero_Shot_CoT,C,"Vitamin E is a fat-soluble vitamin that functions as a major antioxidant, protecting cell membranes from oxidative damage.
+
+C"
+Q1698,Zero_Shot_CoT,C,D

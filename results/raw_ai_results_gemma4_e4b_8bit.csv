@@ -1,0 +1,611 @@
+Question_ID,Prompt_Style,Ground_Truth,Raw_AI_Response
+Q12745,Baseline,C,A
+Q13383,Baseline,D,D
+Q11240,Baseline,B,A
+Q6562,Baseline,C,C
+Q12248,Baseline,A,B
+Q4817,Baseline,D,D
+Q13782,Baseline,A,A
+Q7614,Baseline,B,B
+Q11769,Baseline,D,A
+Q2808,Baseline,C,C
+Q13623,Baseline,B,B
+Q6923,Baseline,C,C
+Q748,Baseline,C,C
+Q10668,Baseline,A,A
+Q3462,Baseline,B,B
+Q469,Baseline,C,C
+Q4744,Baseline,C,C
+Q219,Baseline,B,B
+Q7329,Baseline,C,C
+Q8700,Baseline,B,B
+Q6850,Baseline,B,B
+Q5769,Baseline,D,D
+Q2460,Baseline,D,D
+Q5724,Baseline,A,A
+Q3426,Baseline,C,C
+Q795,Baseline,C,C
+Q13724,Baseline,B,B
+Q5218,Baseline,A,A
+Q2146,Baseline,B,B
+Q10192,Baseline,B,B
+Q7597,Baseline,B,B
+Q9206,Baseline,C,C
+Q170,Baseline,B,C
+Q12976,Baseline,B,B
+Q5461,Baseline,D,D
+Q9736,Baseline,A,B
+Q10653,Baseline,C,A
+Q10379,Baseline,C,C
+Q5313,Baseline,B,B
+Q5712,Baseline,A,A
+Q287,Baseline,D,D
+Q12306,Baseline,B,B
+Q12354,Baseline,D,D
+Q8810,Baseline,D,C
+Q12691,Baseline,C,C
+Q9854,Baseline,D,D
+Q7407,Baseline,C,C
+Q8523,Baseline,C,A
+Q9413,Baseline,C,C
+Q1698,Baseline,C,C
+Q12745,Structured,C,"```json
+{
+  ""answer"": ""A""
+}
+```"
+Q13383,Structured,D,"```json
+{
+  ""answer"": ""D""
+}
+```"
+Q11240,Structured,B,"{""answer"": ""A""}"
+Q6562,Structured,C,"```json
+{
+  ""answer"": ""C""
+}
+```"
+Q12248,Structured,A,"{""answer"": ""C""}"
+Q4817,Structured,D,"```json
+{
+  ""answer"": ""D""
+}
+```"
+Q13782,Structured,A,"```json
+{
+  ""answer"": ""A""
+}
+```"
+Q7614,Structured,B,"```json
+{
+  ""answer"": ""B""
+}
+```"
+Q11769,Structured,D,"```json
+{
+  ""answer"": ""A""
+}
+```"
+Q2808,Structured,C,"```json
+{
+  ""answer"": ""C""
+}
+```"
+Q13623,Structured,B,"```json
+{
+  ""answer"": ""B""
+}
+```"
+Q6923,Structured,C,"```json
+{
+  ""answer"": ""C""
+}
+```"
+Q748,Structured,C,"```json
+{
+  ""answer"": ""C""
+}
+```"
+Q10668,Structured,A,"```json
+{
+  ""answer"": ""D""
+}
+```"
+Q3462,Structured,B,"```json
+{
+  ""answer"": ""B""
+}
+```"
+Q469,Structured,C,"```json
+{
+  ""answer"": ""B""
+}
+```"
+Q4744,Structured,C,"```json
+{
+  ""answer"": ""C""
+}
+```"
+Q219,Structured,B,"```json
+{
+  ""answer"": ""B""
+}
+```"
+Q7329,Structured,C,"```json
+{
+  ""answer"": ""C""
+}
+```"
+Q8700,Structured,B,"```json
+{
+  ""answer"": ""B""
+}
+```"
+Q6850,Structured,B,"```json
+{
+  ""answer"": ""B""
+}
+```"
+Q5769,Structured,D,"```json
+{
+  ""answer"": ""D""
+}
+```"
+Q2460,Structured,D,"```json
+{
+  ""answer"": ""D""
+}
+```"
+Q5724,Structured,A,"```json
+{
+  ""answer"": ""A""
+}
+```"
+Q3426,Structured,C,"{""answer"": ""C""}"
+Q795,Structured,C,"```json
+{
+  ""answer"": ""C""
+}
+```"
+Q13724,Structured,B,"```json
+{
+  ""answer"": ""B""
+}
+```"
+Q5218,Structured,A,"```json
+{
+  ""answer"": ""A""
+}
+```"
+Q2146,Structured,B,"```json
+{
+  ""answer"": ""B""
+}
+```"
+Q10192,Structured,B,"```json
+{
+  ""answer"": ""B""
+}
+```"
+Q7597,Structured,B,"```json
+{
+  ""answer"": ""B""
+}
+```"
+Q9206,Structured,C,"```json
+{
+  ""answer"": ""C""
+}
+```"
+Q170,Structured,B,"```json
+{
+  ""answer"": ""B""
+}
+```"
+Q12976,Structured,B,"```json
+{
+  ""answer"": ""B""
+}
+```"
+Q5461,Structured,D,"```json
+{
+  ""answer"": ""A""
+}
+```"
+Q9736,Structured,A,"```json
+{
+  ""answer"": ""B""
+}
+```"
+Q10653,Structured,C,"```json
+{
+  ""answer"": ""C""
+}
+```"
+Q10379,Structured,C,"{""answer"": ""C""}"
+Q5313,Structured,B,"```json
+{
+  ""answer"": ""B""
+}
+```"
+Q5712,Structured,A,"```json
+{
+  ""answer"": ""A""
+}
+```"
+Q287,Structured,D,"{""answer"": ""D""}"
+Q12306,Structured,B,"```json
+{
+  ""answer"": ""B""
+}
+```"
+Q12354,Structured,D,"{""answer"": ""Vascular dementia""}"
+Q8810,Structured,D,"```json
+{
+  ""answer"": ""C""
+}
+```"
+Q12691,Structured,C,"```json
+{
+  ""answer"": ""C""
+}
+```"
+Q9854,Structured,D,"```json
+{
+  ""answer"": ""D""
+}
+```"
+Q7407,Structured,C,"```json
+{
+  ""answer"": ""C""
+}
+```"
+Q8523,Structured,C,"```json
+{
+  ""answer"": ""A""
+}
+```"
+Q9413,Structured,C,"{""answer"": ""C""}"
+Q1698,Structured,C,"```json
+{
+  ""answer"": ""C""
+}
+```"
+Q12745,Yes_Man,C,D
+Q13383,Yes_Man,D,A
+Q11240,Yes_Man,B,A
+Q6562,Yes_Man,C,C
+Q12248,Yes_Man,A,C
+Q4817,Yes_Man,D,D
+Q13782,Yes_Man,A,B
+Q7614,Yes_Man,B,B
+Q11769,Yes_Man,D,C
+Q2808,Yes_Man,C,C
+Q13623,Yes_Man,B,B
+Q6923,Yes_Man,C,C
+Q748,Yes_Man,C,D
+Q10668,Yes_Man,A,A
+Q3462,Yes_Man,B,D
+Q469,Yes_Man,C,C
+Q4744,Yes_Man,C,C
+Q219,Yes_Man,B,B
+Q7329,Yes_Man,C,C
+Q8700,Yes_Man,B,A
+Q6850,Yes_Man,B,B
+Q5769,Yes_Man,D,C
+Q2460,Yes_Man,D,C
+Q5724,Yes_Man,A,B
+Q3426,Yes_Man,C,D
+Q795,Yes_Man,C,C
+Q13724,Yes_Man,B,D
+Q5218,Yes_Man,A,D
+Q2146,Yes_Man,B,B
+Q10192,Yes_Man,B,B
+Q7597,Yes_Man,B,B
+Q9206,Yes_Man,C,C
+Q170,Yes_Man,B,C
+Q12976,Yes_Man,B,D
+Q5461,Yes_Man,D,D
+Q9736,Yes_Man,A,B
+Q10653,Yes_Man,C,A
+Q10379,Yes_Man,C,C
+Q5313,Yes_Man,B,B
+Q5712,Yes_Man,A,A
+Q287,Yes_Man,D,D
+Q12306,Yes_Man,B,A
+Q12354,Yes_Man,D,A
+Q8810,Yes_Man,D,C
+Q12691,Yes_Man,C,A
+Q9854,Yes_Man,D,D
+Q7407,Yes_Man,C,C
+Q8523,Yes_Man,C,A
+Q9413,Yes_Man,C,C
+Q1698,Yes_Man,C,B
+Q12745,Noise,C,A
+Q13383,Noise,D,D
+Q11240,Noise,B,A
+Q6562,Noise,C,C
+Q12248,Noise,A,B
+Q4817,Noise,D,D
+Q13782,Noise,A,A
+Q7614,Noise,B,B
+Q11769,Noise,D,A
+Q2808,Noise,C,C
+Q13623,Noise,B,B
+Q6923,Noise,C,C
+Q748,Noise,C,C
+Q10668,Noise,A,C
+Q3462,Noise,B,B
+Q469,Noise,C,C
+Q4744,Noise,C,C
+Q219,Noise,B,B
+Q7329,Noise,C,C
+Q8700,Noise,B,B
+Q6850,Noise,B,B
+Q5769,Noise,D,D
+Q2460,Noise,D,D
+Q5724,Noise,A,A
+Q3426,Noise,C,C
+Q795,Noise,C,C
+Q13724,Noise,B,B
+Q5218,Noise,A,A
+Q2146,Noise,B,B
+Q10192,Noise,B,B
+Q7597,Noise,B,B
+Q9206,Noise,C,C
+Q170,Noise,B,B
+Q12976,Noise,B,B
+Q5461,Noise,D,D
+Q9736,Noise,A,B
+Q10653,Noise,C,C
+Q10379,Noise,C,C
+Q5313,Noise,B,B
+Q5712,Noise,A,A
+Q287,Noise,D,D
+Q12306,Noise,B,B
+Q12354,Noise,D,D
+Q8810,Noise,D,C
+Q12691,Noise,C,C
+Q9854,Noise,D,D
+Q7407,Noise,C,C
+Q8523,Noise,C,A
+Q9413,Noise,C,C
+Q1698,Noise,C,C
+Q12745,Zero_Shot_CoT,C,"The psychologist's roles are contradictory: a fact witness for the plaintiff acts as an advocate, supporting one side's narrative; an expert witness must provide objective, unbiased opinions based on scientific principles. Combining these two roles creates a severe conflict of interest, compromising her professional objectivity and violating ethical standards regarding expert testimony neutrality.
+
+A"
+Q13383,Zero_Shot_CoT,D,"The question asks how different conceptual frameworks influence governmental responses to terrorism.
+Option A describes the ""disease"" or public health perspective (focusing on social reform).
+Option B describes the dominant ""warfare"" analogy (focusing on military retaliation and pre-emption).
+Option C describes the constraints of a traditional ""justice/crime"" system versus warfare.
+Since all three options accurately detail how distinct theoretical lenses—disease, war, and crime—lead to varied policy responses, Option D is the correct synthesis.
+
+D"
+Q11240,Zero_Shot_CoT,B,"The testimony involves relaying an out-of-court statement—the parrot's repeated calls (""George don't..."")—to prove that George was involved in the murder. Under the rules of evidence, an out-of-court statement offered to prove the truth of the matter asserted (that George is the killer) is generally considered hearsay and is inadmissible unless it falls under a specific exception.
+
+A"
+Q6562,Zero_Shot_CoT,C,"The principle of *pacta sunt servanda* (agreements must be kept) dictates that when a state voluntarily enters into or accepts an obligation under international law, it cannot use its internal legal framework as an excuse for non-compliance. International obligations are binding on the state regardless of conflicting domestic laws.
+
+C"
+Q12248,Zero_Shot_CoT,A,"The patient presents with a clear pattern of cyclical mood changes: anxiety and hyperactivity preceding menses, followed by acute depression, irritability, and lethargy on menses day. This presentation is classic for Premenstrual Dysphoric Disorder (PMDD). Since PMDD is not an option, we must select the diagnosis that best describes chronic, fluctuating mood instability.
+
+A: Adjustment disorder requires a clear external stressor and does not account for the strict cyclical nature of the symptoms.
+B: Bipolar I involves full manic or hypomanic episodes; while her pre-menses phase has mixed features, the strict menstrual correlation points away from primary bipolar disorder.
+C: Cyclothymia is characterized by chronic, fluctuating mood disturbances that do not meet criteria for major depressive or manic episodes. This option best captures the nature of a recurring, cyclical mood instability pattern compared to the other choices.
+D: Generalized anxiety disorder does not account for the acute depressive phase tied to menstruation.
+
+C"
+Q4817,Zero_Shot_CoT,D,"The problem requires finding the launch angle ($\theta$) such that the horizontal range ($R$) equals the maximum vertical displacement ($H$).
+
+1.  **Formulas:**
+    *   Maximum Vertical Displacement: $H = \frac{v_0^2 \sin^2(\theta)}{2g}$
+    *   Horizontal Range: $R = \frac{v_0^2 \sin(2\theta)}{g}$
+
+2.  **Set Condition ($R=H$):**
+    $$\frac{v_0^2 \sin(2\theta)}{g} = \frac{v_0^2 \sin^2(\theta)}{2g}$$
+
+3.  **Simplify:** Cancel common terms ($\frac{v_0^2}{g}$):
+    $$\sin(2\theta) = \frac{\sin^2(\theta)}{2}$$
+
+4.  **Use Double Angle Identity:** Substitute $\sin(2\theta) = 2 \sin(\theta) \cos(\theta)$:
+    $$2 \sin(\theta) \cos(\theta) = \frac{\sin^2(\theta)}{2}$$
+
+5.  **Solve for $\tan(\theta)$:** Since we assume $\sin(\theta) \neq 0$, divide both sides by $\sin(\theta)$:
+    $$2 \cos(\theta) = \frac{\sin(\theta)}{2}$$
+    $$\frac{\sin(\theta)}{\cos(\theta)} = 4$$
+    $$\tan(\theta) = 4$$
+
+6.  **Conclusion:** The required angle is $\theta = \tan^{-1}(4)$.
+
+D"
+Q13782,Zero_Shot_CoT,A,"Recombination is a highly efficient mechanism of evolution for RNA viruses like Poliovirus. By exchanging segments of its genome with another enterovirus, the virus can rapidly acquire large blocks of genetic material that confer increased fitness, such as enhanced replication efficiency or greater pathogenicity (virulence), far more quickly than relying solely on random point mutations.
+
+B"
+Q7614,Zero_Shot_CoT,B,"The United States government needed a domestic legal mechanism to justify the rapid and large-scale deployment of troops and military action in Southeast Asia without formally declaring war. The Gulf of Tonkin Incident in 1964 provided the pretext for Congress to pass the Gulf of Tonkin Resolution. This resolution granted President Lyndon B. Johnson broad authority to use military force in Vietnam, serving as the primary legal basis for the subsequent escalation of US involvement.
+
+B"
+Q11769,Zero_Shot_CoT,D,"The core issue here is the contractual capacity of a minor under the Infancy Doctrine. A 15-year-old minor generally lacks the legal capacity to enter into binding contracts, meaning the contract is voidable by him. When a minor disaffirms (voids) a contract and returns the item purchased, the law requires that the parties be returned to their pre-contractual positions through restitution. This means the seller must return the down payment ($2000). The seller cannot keep the money or claim other benefits from the transaction simply because the car was damaged after the disaffirmance.
+
+B"
+Q2808,Zero_Shot_CoT,C,"Fermentation is an anaerobic metabolic pathway that regenerates $\text{NAD}^+$ from NADH by converting pyruvate (the end product of glycolysis) into other substances (like lactate or ethanol). This regeneration of $\text{NAD}^+$ is crucial because it allows glycolysis to continue producing ATP even when oxygen is unavailable, preventing the cell's energy production from stopping completely.
+
+C"
+Q13623,Zero_Shot_CoT,B,B
+Q6923,Zero_Shot_CoT,C,"Statement 1 is true because modern Convolutional Neural Networks (CNNs) are highly effective on standard datasets like CIFAR-10, and achieving over 95% accuracy is a common result with proper training and architecture design. Statement 2 is false because ensembles of neural networks generally improve classification accuracy by reducing variance and leveraging the collective strength of multiple models; while high correlation limits the benefit, it does not prevent improvement entirely.
+
+C"
+Q748,Zero_Shot_CoT,C,"A tracheostomy provides a direct and secure opening into the trachea (windpipe). This is crucial for patients who require long-term respiratory support or are transitioning off invasive upper airway devices like endotracheal tubes. By providing a stable lower airway access point, it facilitates the process of weaning a patient from mechanical ventilation.
+
+C"
+Q10668,Zero_Shot_CoT,A,"The jurisdiction uses a modified comparative negligence statute: recovery is permitted only if the plaintiff's negligence is less than or equal to the defendant's negligence.
+
+1.  **Identify the Plaintiff and Defendant:** The friend (Plaintiff) is suing the driver of the car that entered on red light (Defendant).
+2.  **Determine Negligence Percentages:** The jury assigned 55% fault to the fan and 45% fault to the driver. Since the friend was a passenger, his own negligence percentage is assumed to be 0%.
+3.  **Apply the Statute:** Compare the Plaintiff's negligence (Friend: 0%) to the Defendant's negligence (Driver: 45%). Since $0\% \le 45\%$, the friend meets the threshold for recovery.
+4.  **Calculate Damages:** The friend is not at fault, so his damages are not reduced by comparative negligence. He recovers the full amount of his damages ($100,000).
+
+A"
+Q3462,Zero_Shot_CoT,B,"The best definition of an urban area encompasses not just the dense core (the central city) but also the contiguous, functionally integrated residential and commercial zones that surround it. These surrounding areas are typically classified as suburbs, which form the metropolitan region. Options C and D are too broad or refer to non-urbanized regions (hinterlands/adjacent counties).
+
+B"
+Q469,Zero_Shot_CoT,C,"The description provided—focus on issues, audience extending beyond shareholders, and voluntary nature—are defining characteristics of social accountability or sustainability reporting, which falls under the umbrella of Social Accounting. Financial accounting, by contrast, is mandatory (for many entities), focuses primarily on financial performance, and targets investors/shareholders. Therefore, Social accounting is distinguished from Financial accounting.
+
+C"
+Q4744,Zero_Shot_CoT,C,"The work required to charge a capacitor is equal to the energy stored in it, which can be calculated using the formula $W = \frac{1}{2} C V^2$, where $C$ is the capacitance and $V$ is the potential difference.
+
+Given:
+$C = 10 \, \mu\text{F} = 10 \times 10^{-6} \, \text{F}$
+$V = 100 \, \text{V}$
+
+Calculation:
+$W = \frac{1}{2} (10 \times 10^{-6} \, \text{F}) (100 \, \text{V})^2$
+$W = \frac{1}{2} (10 \times 10^{-6}) (10000)$
+$W = \frac{1}{2} (0.1)$
+$W = 0.05 \, \text{J}$
+
+C"
+Q219,Zero_Shot_CoT,B,"The right atrioventricular valve (tricuspid valve) functions like other AV valves, which are anchored by chordae tendineae to papillary muscles. These structures are crucial during ventricular systole to prevent the cusps from bulging backward into the atrium (everting).
+
+B"
+Q7329,Zero_Shot_CoT,C,"PCR is an in vitro molecular biology technique designed to exponentially amplify specific segments of DNA. This process requires short oligonucleotide sequences (primers) that bind to the target region, and a heat-stable enzyme (thermostable DNA polymerase, such as Taq polymerase) that can withstand the high temperatures needed for denaturation during repeated cycles of replication.
+
+C"
+Q8700,Zero_Shot_CoT,B,"Scenario 1 involves killing a wild animal for convenience or annoyance, which violates ordinary standards of compassion and unnecessary violence, making it morally wrong. Scenario 2 is a standard act of parental care (feeding a child), which is not morally wrong.
+
+B"
+Q6850,Zero_Shot_CoT,B,"High entropy measures the degree of randomness or uncertainty within a set of data. In classification, if a partition has high entropy, it means that the samples within that partition are mixed across multiple classes (e.g., 50% Class A and 50% Class B). This state is defined as being impure or ""not pure.""
+
+B"
+Q5769,Zero_Shot_CoT,D,"The Great Society was characterized by expansive federal spending aimed at addressing social problems like poverty, racial injustice, and lack of healthcare (as reflected in the text). The Civil Rights Act, Medicare/Medicaid, and HUD were all major components of this large-scale social reform agenda. A balanced budget mandate, however, would restrict the very kind of massive government investment required to achieve the goals described by Johnson's vision.
+
+D"
+Q2460,Zero_Shot_CoT,D,"The proposition is a biconditional statement ($P \iff Q$), meaning it contains two conditional statements: $P \implies Q$ and $Q \implies P$.
+Let $P$: The university raises tuition (Option A).
+Let $Q$: Both the governor approves of it AND the board of trustees recommends it (Options B $\land$ C).
+
+In the direction $Q \implies P$, the antecedent is $Q$ (the conjunction of B and C). Since the full condition $Q$ is not listed as a single option, and options B and C are only components of $Q$, none of the individual choices correctly identify the complete antecedent.
+
+D"
+Q5724,Zero_Shot_CoT,A,"The decision in Brown v. Board of Education mandated the end of state-sponsored segregation in public schools, establishing that separate educational facilities are inherently unequal. This legal change fundamentally opened up opportunities for previously excluded groups to participate fully in the American education system, including higher education. Therefore, a direct social effect was increased access and participation in colleges and universities.
+
+B"
+Q3426,Zero_Shot_CoT,C,"Gibbon's observation that philosophers viewed various Roman religious practices as ""equally false,"" while acknowledging their social utility or popular belief, demonstrates a shift away from unquestioning dogma toward intellectual scrutiny and rational critique. This perspective aligns perfectly with the rise of Enlightenment thought and religious skepticism among educated elites in 18th-century Britain.
+
+C"
+Q795,Zero_Shot_CoT,C,"The rate of gas diffusion is governed by Fick's Law, which states that the rate of diffusion is directly proportional to the surface area available and the partial pressure gradient, and inversely proportional to the membrane thickness. Increasing the total surface area ($A$) provides more space for gas molecules to move across the alveolar-capillary barrier simultaneously, thus increasing the overall rate of diffusion.
+
+C"
+Q13724,Zero_Shot_CoT,B,"Antibody-producing cells (plasma cells) originate from B lymphocytes. For most antigens (especially protein antigens like those found on viruses), B cell activation requires T helper ($\text{T}_{\text{H}}$) cell assistance. The B cell internalizes the antigen and presents it to the $\text{T}_{\text{H}}$ cell. The subsequent interaction between the B cell and the specific $\text{T}_{\text{H}}$ cell provides essential co-stimulatory signals (cytokines, CD40L binding) that drive the B cell to proliferate and differentiate into antibody-secreting plasma cells.
+
+B"
+Q5218,Zero_Shot_CoT,A,"Maria's profile contains several classic risk factors for developing anorexia nervosa: she is an adolescent female, demonstrating high achievement and perfectionism (A student, talented musician), which often drives the need for extreme control; coupled with a feeling that her life is out of control, indicating underlying anxiety and psychological vulnerability.
+
+A"
+Q2146,Zero_Shot_CoT,B,"The problem asks us to project a rate of bouncing based on initial data. First, we determine the relationship between the time and the number of bounces. Pat bounces 25 times in 30 seconds. We need to find out how many bounces occur in 150 seconds. Since $150$ seconds is exactly five times longer than $30$ seconds ($150 / 30 = 5$), the number of bounces must also be five times greater. Therefore, we multiply the initial number of bounces by 5: $25 \times 5 = 125$.
+
+B"
+Q10192,Zero_Shot_CoT,B,"The origins of Chinese civilization were not a single event or located in one specific place (like An-yang), nor did they begin with a unified empire (like the Qin Dynasty). Instead, archaeological evidence shows that complex societies—starting as localized chiefdoms and evolving into regional states—developed gradually across various regions of China over thousands of years. This decentralized development is the most accurate description of its foundational period.
+
+B"
+Q7597,Zero_Shot_CoT,B,"The term ""links"" refers to a specific type of coastal or seaside golf course, making it an alternative name or classification for a golf course.
+
+B"
+Q9206,Zero_Shot_CoT,C,"Scenario 1 involves a common recreational activity (archery), which is not morally wrong. Scenario 2 involves invading someone's privacy and obtaining their personal contact information without consent based on an inappropriate observation, which is clearly morally wrong according to ordinary standards.
+
+C"
+Q170,Zero_Shot_CoT,B,"The biopsy site is located on the labial alveolar mucosa (the cheek side) of the lower jaw. The nerves that supply sensation to the soft tissues and gingiva on the buccal/labial aspect of the mandible are branches of the buccal nerve, which originates from the mandibular division of the trigeminal nerve (V3). Therefore, local anesthesia must target this distribution for a pain-free procedure.
+
+C"
+Q12976,Zero_Shot_CoT,B,"The cerebral cortex (B) is responsible for higher-order functions such as complex thought, language, memory, and planning. While other parts of the brain, like the brain stem (which controls vital autonomic functions), are highly functional immediately after birth, the cortex undergoes massive postnatal development, including extensive synaptogenesis and myelination, to achieve its full complexity. Therefore, it is the least developed part at birth.
+
+B"
+Q5461,Zero_Shot_CoT,D,"The analysis requires calculating the expected value (EV) and assessing the risk profile of each option under different financial constraints.
+
+**Step 1: Calculate Expected Values (EV)**
+*   **Option I:** $\text{EV}_I = \$25,000$ (Sure return).
+*   **Option II:** $\text{EV}_{II} = (0.50 \times \$50,000) + (0.50 \times \$10,000) = \$25,000 + \$5,000 = \$30,000$.
+*   **Option III:** $\text{EV}_{III} = (0.05 \times \$100,000) + (0.95 \times \$0) = \$5,000 + \$0 = \$5,000$.
+
+**Step 2: Evaluate Statement A (Maximize Expected Return)**
+*   The highest EV is Option II ($\$30,000$).
+*   Statement A is **Correct**.
+
+**Step 3: Evaluate Statement B (Need at least $20,000)**
+*   If the company needs a minimum guaranteed return of $\$20,000$, they must choose an option that guarantees this amount.
+*   Option I guarantees $\$25,000$.
+*   Option II has a 50% chance of only $\$10,000$ (failing the requirement).
+*   Option III has a 95% chance of $\$0$ (failing the requirement).
+*   Statement B is **Correct**.
+
+**Step 4: Evaluate Statement C (Need at least $80,000)**
+*   If the company needs $\$80,000$, they must choose an option that provides it.
+*   Option I only guarantees $\$25,000$.
+*   Option II never guarantees $\$80,000$.
+*   Option III offers a 5% chance of $\$100,000$ (meeting the requirement). While this is highly risky, if no other option can meet the need, Option III is the only choice that provides the possibility. Assuming the question accepts high risk when necessary to achieve a goal, Statement C is considered **Correct** in the context of finding a viable path.
+
+**Step 5: Evaluate Statement D (All of the above)**
+*   Since Statements A, B, and C are all correct descriptions of optimal choices under specific financial constraints (maximizing EV, minimizing risk for a minimum threshold, or accepting high risk to meet a high threshold), Statement D is the overall correct answer.
+
+D"
+Q9736,Zero_Shot_CoT,A,"Baier argues for a form of non-anthropocentric ethics where moral consideration is granted based on sentience—the capacity to feel pain and pleasure. Therefore, genuine moral rules must extend their scope beyond human interests to include all beings that are sentient.
+
+B"
+Q10653,Zero_Shot_CoT,C,"The grant created a fee simple subject to a condition subsequent, which included a right of entry for the grantor (the resident). The condition was triggered if the land were used or developed for any commercial purpose, unless it fell under specific exceptions (recreational, scientific, educational). Although the ultimate goal was recreational development, the logging company's act of clearing the timber and selling it for $10,000 constitutes a clear commercial purpose violation. Because this condition subsequent was met, the resident has the right to re-enter and terminate the State's interest in the tract.
+
+A"
+Q10379,Zero_Shot_CoT,C,"This question requires calculating the present value of a zero-coupon bond. The price (P) is found by discounting the face value (FV) back over the life of the bond using the yield (r): $P = \frac{FV}{(1 + r)^n}$.
+
+Given:
+$FV = \$100$
+$r = 4\% = 0.04$
+$n = 5$ years
+
+Calculation:
+$P = \frac{\$100}{(1 + 0.04)^5}$
+$P = \frac{\$100}{1.21665...}$
+$P \approx \$82.19$
+
+This value is closest to $82.
+
+C"
+Q5313,Zero_Shot_CoT,B,"The significance of Phineas Gage's case lies in its early demonstration that specific damage to certain parts of the brain (the frontal lobe) could lead to profound and measurable changes in personality, behavior, and emotional regulation. This provided crucial evidence linking brain structure to complex cognitive function long before modern neuroimaging techniques were available.
+
+B"
+Q5712,Zero_Shot_CoT,A,"The text explicitly details a sudden and deliberate attack by naval and air forces of the Empire of Japan on ""Yesterday, December 7, 1941,"" causing severe damage to American military forces. This historical event is known as the bombing of Pearl Harbor.
+
+A"
+Q287,Zero_Shot_CoT,D,"The solar radiation flux ($F$) from the Sun follows the inverse square law with respect to the distance ($r$). Therefore, $F \propto 1/r^2$. To find the ratio of the flux at perihelion ($F_p$) to the flux at aphelion ($F_a$), we use the formula:
+$$\text{Ratio} = \frac{F_p}{F_a} = \left(\frac{r_a}{r_p}\right)^2$$
+Given $r_p = 0.304$ AU and $r_a = 0.456$ AU:
+$$\text{Ratio} = \left(\frac{0.456}{0.304}\right)^2$$
+We observe that $0.456 / 0.304 = 1.5$, or $3/2$.
+$$\text{Ratio} = (1.5)^2 = (3/2)^2 = 9/4$$
+
+D"
+Q12306,Zero_Shot_CoT,B,"The patient is experiencing a severe Type I hypersensitivity reaction (anaphylaxis) to eggs. The question asks which vaccination poses a heightened risk of a similar allergic reaction. Many influenza vaccines are produced using embryonated chicken eggs and therefore contain egg proteins, making them a known trigger for individuals with egg allergies.
+
+B"
+Q12354,Zero_Shot_CoT,D,"The patient presents with a constellation of symptoms including progressive cognitive decline (memory loss, executive dysfunction, disorientation), functional impairment (unpaid bills, messy house), and focal neurological deficits (left-sided hemiparesis). Crucially, her medical history includes severe hypertension and two prior strokes. The combination of cerebrovascular risk factors, evidence of past stroke events, and the presence of both cognitive decline and motor deficits is the classic presentation of vascular dementia.
+
+D"
+Q8810,Zero_Shot_CoT,D,"Scenario 1 involves an act of compassion and empathy—choosing to overlook bad behavior due to understanding underlying personal struggles. This is generally considered morally acceptable, not clearly wrong. Scenario 2 involves intentionally starting a fire in a furnace, which is inherently dangerous, reckless, and likely causes property damage or risk of injury, making it clearly morally wrong.
+
+C"
+Q12691,Zero_Shot_CoT,C,"The person is exhibiting characteristics of active opposition to mainstream societal norms (rejecting the dominant culture) while simultaneously developing a strong, positive internal identity rooted in their minority group (rigid, positive beliefs about the minority culture). This combination aligns directly with the stage of Resistance and Immersion in this model.
+
+C"
+Q9854,Zero_Shot_CoT,D,"Visual methods inherently involve capturing images or video, which raises significant ethical concerns beyond mere legal compliance. Protecting participants from harm (B) and ensuring that their privacy is not invaded (C) are fundamental ethical duties in research. Furthermore, understanding whether a location is public or private (A) dictates both legal permissions and ethical expectations regarding observation. Therefore, all listed factors must be considered alongside legal guidelines.
+
+D"
+Q7407,Zero_Shot_CoT,C,"The term used in bowling to describe three consecutive strikes is ""turkey."" Yahtzee refers to five consecutive strikes, and mulligan is a re-roll opportunity.
+
+C"
+Q8523,Zero_Shot_CoT,C,"Scenario 1 involves unauthorized destruction or theft of resources intended for others (lumber), which violates property rights and resource management standards. Scenario 2 involves touching priceless cultural artifacts in a museum setting, an action that risks irreversible damage and disrespects shared heritage, making it morally wrong according to ordinary standards.
+
+A"
+Q9413,Zero_Shot_CoT,C,"Vitamin E (specifically alpha-tocopherol) is a fat-soluble vitamin that functions as a primary chain-breaking antioxidant within biological membranes. It stabilizes lipid radicals and prevents the propagation of oxidative damage, making it crucial for protecting cell integrity from free radical attack.
+
+C"
+Q1698,Zero_Shot_CoT,C,"The total energy released during a nuclear reaction (mass defect converted to $E=mc^2$) must be distributed among the products. Since momentum must be conserved and the initial system is typically at rest, the final particles (alpha particle and neutron) must move in opposite directions with equal magnitude of momentum ($p$). Kinetic energy ($K$) is related to mass ($m$) and momentum ($p$) by $K = p^2 / (2m)$. Because the neutron has a much smaller mass than the alpha particle, it will carry away a disproportionately large amount of the total kinetic energy. Therefore, the majority of the released energy is in the form of the kinetic energy of the neutron.
+
+C"

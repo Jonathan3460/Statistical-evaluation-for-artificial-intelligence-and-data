@@ -6,12 +6,11 @@ import random
 
 
 # --- CONFIGURATION VARIABLES ---
-QUESTIONS_TO_TEST = 10
+QUESTIONS_TO_TEST = 50
 random.seed(42)
 # -------------------------------
 
 df = pd.read_csv("data/mmlu_experiment_data.csv")
-# The exact same questions for every prompt
 testing_df = df.iloc[0: QUESTIONS_TO_TEST]
 
 prompt_styles = {
@@ -29,7 +28,7 @@ prompt_styles = {
 
 results = []
 
-print(f"Starting the LLM Experiment with Ollama (gemma4:e2b)...")
+print(f"Starting the LLM Experiment with Ollama (gemma4:e4b-it-q8_0)...")
 
 for style_name, full_prompt_text in prompt_styles.items():
     print(
@@ -53,7 +52,7 @@ for style_name, full_prompt_text in prompt_styles.items():
             full_prompt = full_prompt_text + question_block
         try:
             response = ollama.chat(
-                model='gemma4:e2b',
+                model='gemma4:e4b-it-q8_0',
                 messages=[{'role': 'user', 'content': full_prompt}],
                 # Forces deterministic, repeatable answers
                 options={'temperature': 0.0, 'seed': 42}
