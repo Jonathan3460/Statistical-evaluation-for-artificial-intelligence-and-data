@@ -6,12 +6,13 @@ import random
 
 
 # --- CONFIGURATION VARIABLES ---
-QUESTIONS_TO_TEST = 50
+QUESTIONS_TO_TEST = 400
 random.seed(42)
 # -------------------------------
 
 df = pd.read_csv("data/mmlu_experiment_data.csv")
-testing_df = df.iloc[0: QUESTIONS_TO_TEST]
+# The first 50 questions was used for the pilot study
+testing_df = df.iloc[50: 50 + QUESTIONS_TO_TEST]
 
 prompt_styles = {
     "Baseline": "Answer the following question. Output only the correct letter (A, B, C, or D).\n\n",

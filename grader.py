@@ -22,7 +22,7 @@ def extract_final_answer(text):
     return "UNKNOWN"
 
 
-df = pd.read_csv("results/raw_ai_results_gemma4_e4b_8bit.csv")
+df = pd.read_csv("results/raw_ai_results_experiment.csv")
 
 df['Extracted_Answer'] = df['Raw_AI_Response'].apply(extract_final_answer)
 
