@@ -1,0 +1,6 @@
+Cochran's Q omnibus test
+N questions: 400
+Prompt conditions: 5
+Q statistic: 395.848101
+df: 4
+p-value: 2.19464494099e-84
