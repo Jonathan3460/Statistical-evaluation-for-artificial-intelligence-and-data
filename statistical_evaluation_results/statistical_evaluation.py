@@ -35,8 +35,8 @@ from statsmodels.stats.multitest import multipletests
 # -----------------------------
 # Configuration
 # -----------------------------
-DATA_PATH = Path("/mnt/data/evaluation_matrix_experiment.csv")
-OUTPUT_DIR = Path("/mnt/data/statistical_evaluation_results")
+DATA_PATH = Path("/Users/jonathankragh/Documents/GitHub/Statistical-evaluation-for-artificial-intelligence-and-data/results/evaluation_matrix_experiment.csv")
+OUTPUT_DIR = Path("/Users/jonathankragh/Documents/GitHub/Statistical-evaluation-for-artificial-intelligence-and-data/statistical_evaluation_results")
 
 ID_COLUMNS = {"Question_ID", "question_id", "id", "question", "Question"}
 ALPHA = 0.05
