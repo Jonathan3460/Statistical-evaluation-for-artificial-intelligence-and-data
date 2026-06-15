@@ -1,60 +1,97 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-from scipy.stats import binomtest
+from scipy.stats import binomtest, chi2  # ADDED: chi2 for Cochran's Q
 from itertools import combinations
 from tqdm import tqdm
 import os
 
 print("Loading evaluation matrix...")
-df = pd.read_csv("results/evaluation_matrix_gemma4_e4b_8bit.csv")
+# Make sure this matches your file
+df = pd.read_csv("results/evaluation_matrix_experiment.csv")
 
 if 'Question_ID' in df.columns:
     df_data = df.drop(columns='Question_ID')
 else:
     df_data = df
 
-sample_sizes = sample_sizes = [50, 100, 150, 200, 250, 300, 350, 400, 500, 600, 800, 1000]
+sample_sizes = [50, 100, 150, 200, 250, 300, 350, 400, 500, 600, 800, 1000]
 n_iterations = 10000
 
 alpha_omnibus = 0.05
 prompts = df_data.columns.tolist()
 pair_names = list(combinations(prompts, 2))
 n_pairs = len(pair_names)
+k_prompts = len(prompts)  # Number of conditions (5)
 
 power_results = {n: {pair: 0 for pair in pair_names} for n in sample_sizes}
+# ADDED: Track the power of Cochran's Q itself
+omnibus_power = {n: 0 for n in sample_sizes}
 
 np.random.seed(42)
 
-print(f"Running Pairwise Monte Carlo Simulation ({n_iterations} iterations per N)...")
+data_matrix = df_data.values
+n_total_questions = data_matrix.shape[0]
+
+print(
+    f"Running Strict Monte Carlo Simulation ({n_iterations} iterations per N)...")
 for n in tqdm(sample_sizes):
-    
+
     for _ in range(n_iterations):
-        sample = df_data.sample(n=n, replace=True)
-        
+        indices = np.random.randint(0, n_total_questions, size=n)
+        sample = data_matrix[indices, :]
+
+        c_j = sample.sum(axis=0)
+        r_i = sample.sum(axis=1)
+        total = c_j.sum()
+
+        denominator = k_prompts * total - np.sum(r_i**2)
+
+        if denominator == 0:
+            p_q = 1.0
+        else:
+            q_stat = (k_prompts - 1) * (k_prompts *
+                                        np.sum(c_j**2) - total**2) / denominator
+            p_q = chi2.sf(q_stat, k_prompts - 1)
+
+        if p_q >= alpha_omnibus:
+            continue
+
+        omnibus_power[n] += 1
+
         p_vals_with_labels = []
-        for col1, col2 in pair_names:
-            b = sum((sample[col1] == 1) & (sample[col2] == 0))
-            c = sum((sample[col1] == 0) & (sample[col2] == 1))
-            
+        for pair_idx, (col_name_1, col_name_2) in enumerate(pair_names):
+            idx1 = prompts.index(col_name_1)
+            idx2 = prompts.index(col_name_2)
+
+            vec1 = sample[:, idx1]
+            vec2 = sample[:, idx2]
+
+            b = np.sum((vec1 == 1) & (vec2 == 0))
+            c = np.sum((vec1 == 0) & (vec2 == 1))
+
             if (b + c) > 0:
                 p_val = binomtest(min(b, c), b + c, 0.5).pvalue
             else:
                 p_val = 1.0
-                
-            p_vals_with_labels.append((p_val, (col1, col2)))
-            
+
+            p_vals_with_labels.append((p_val, (col_name_1, col_name_2)))
+
         p_vals_with_labels.sort(key=lambda x: x[0])
-        
+
         for k, (p_val, pair) in enumerate(p_vals_with_labels):
             threshold = alpha_omnibus / (n_pairs - k)
-            
+
             if p_val < threshold:
                 power_results[n][pair] += 1
             else:
                 break
 
-print("\n--- SIMULATED POWER BY PAIR ---")
+print("\n--- SIMULATED OMNIBUS POWER (COCHRAN'S Q) ---")
+for n in sample_sizes:
+    print(f"N={n:<4}: {(omnibus_power[n]/n_iterations)*100:.1f}%")
+
+print("\n--- SIMULATED PAIRWISE POWER (McNemar + Holm) ---")
 print(f"{'Pair':<35} | " + " | ".join([f"N={n:<3}" for n in sample_sizes]))
 print("-" * 100)
 
@@ -66,28 +103,30 @@ for pair in pair_names:
     print(row_str)
 
 plt.figure(figsize=(12, 8))
-
 colors = plt.cm.tab10(np.linspace(0, 1, len(pair_names)))
 
 for idx, pair in enumerate(pair_names):
     ps = [power_results[n][pair] / n_iterations for n in sample_sizes]
-    
+
     if max(ps) > 0.05:
         label_name = f"{pair[0]} vs {pair[1]}"
-        plt.plot(sample_sizes, ps, marker='o', markersize=4, linewidth=2, color=colors[idx], label=label_name)
+        plt.plot(sample_sizes, ps, marker='o', markersize=4,
+                 linewidth=2, color=colors[idx], label=label_name)
     else:
-        plt.plot(sample_sizes, ps, linestyle=':', linewidth=1, color='gray', alpha=0.5)
+        plt.plot(sample_sizes, ps, linestyle=':',
+                 linewidth=1, color='gray', alpha=0.5)
 
-plt.axhline(y=0.80, color='red', linestyle='--', linewidth=2.5, label='80% Target Power')
+plt.axhline(y=0.80, color='red', linestyle='--',
+            linewidth=2.5, label='80% Target Power')
 
-plt.title('Holm-Bonferroni Power by Prompt Pair (Detecting Specific Differences)', fontsize=14, fontweight='bold')
+plt.title('Holm-Bonferroni Power by Prompt Pair (Conditional on Cochran\'s Q)',
+          fontsize=14, fontweight='bold')
 plt.xlabel('Sample Size (N Questions)', fontsize=12)
 plt.ylabel('Statistical Power', fontsize=12)
 plt.ylim(-0.05, 1.05)
 plt.grid(True, linestyle=':', alpha=0.7)
 
 plt.legend(bbox_to_anchor=(1.04, 1), loc="upper left", fontsize=10)
-
 plt.tight_layout()
 
 os.makedirs("results", exist_ok=True)
