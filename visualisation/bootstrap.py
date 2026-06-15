@@ -44,4 +44,4 @@ plt.gca().yaxis.set_major_formatter(
     plt.FuncFormatter(lambda x, _: f'{x*100:.0f}%'))
 plt.xticks(rotation=15, fontsize=11)
 plt.tight_layout()
-plt.savefig('bootstrapped_variance_plot.png', dpi=300)
+plt.savefig('/figures/bootstrapped_variance_plot.png', dpi=300)

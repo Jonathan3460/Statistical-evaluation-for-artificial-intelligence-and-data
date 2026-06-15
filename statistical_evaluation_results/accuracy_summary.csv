@@ -1,6 +1,0 @@
-prompt,accuracy,ci_lower,ci_upper
-Zero_Shot_CoT,0.845,0.81,0.88
-Noise,0.83,0.7925,0.865
-Baseline,0.82,0.7825,0.8575
-Structured,0.7925,0.7525,0.8325
-Yes_Man,0.475,0.4275,0.525

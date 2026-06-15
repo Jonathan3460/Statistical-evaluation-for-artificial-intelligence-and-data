@@ -15,8 +15,9 @@ from pathlib import Path
 
 # ── Configuration ─────────────────────────────────────────────────────────────
 
-DATA_PATH      = r"C:\Users\victo\Desktop\Programmering eksamen\Statistical-evaluation-for-artificial-intelligence-and-data\results\evaluation_matrix_experiment.csv"
-OUTPUT_DIR     = Path(r"C:\Users\victo\Desktop\Programmering eksamen\Statistical-evaluation-for-artificial-intelligence-and-data\figures")
+DATA_PATH = r"C:\Users\victo\Desktop\Programmering eksamen\Statistical-evaluation-for-artificial-intelligence-and-data\results\evaluation_matrix_experiment.csv"
+OUTPUT_DIR = Path(
+    r"C:\Users\victo\Desktop\Programmering eksamen\Statistical-evaluation-for-artificial-intelligence-and-data\figures")
 N_BOOTSTRAP = 5000
 RANDOM_SEED = 42
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
@@ -57,23 +58,26 @@ N = len(df)
 
 # ── Bootstrap CI ──────────────────────────────────────────────────────────────
 
+
 def bootstrap_ci(data, n_resamples=N_BOOTSTRAP, ci=0.95):
     n = len(data)
-    indices    = rng.integers(0, n, size=(n_resamples, n))
+    indices = rng.integers(0, n, size=(n_resamples, n))
     boot_means = data[indices].mean(axis=1)
-    alpha      = (1 - ci) / 2
-    lower      = np.percentile(boot_means, 100 * alpha)
-    upper      = np.percentile(boot_means, 100 * (1 - alpha))
+    alpha = (1 - ci) / 2
+    lower = np.percentile(boot_means, 100 * alpha)
+    upper = np.percentile(boot_means, 100 * (1 - alpha))
     return lower, upper
+
 
 stats = {}
 for ps in prompt_styles:
-    arr       = df[ps].values.astype(float)
-    lo, hi    = bootstrap_ci(arr)
+    arr = df[ps].values.astype(float)
+    lo, hi = bootstrap_ci(arr)
     stats[ps] = {"mean": arr.mean(), "lower": lo, "upper": hi}
 
 # Sort best → worst accuracy (top of plot = best)
-sorted_prompts = sorted(prompt_styles, key=lambda ps: stats[ps]["mean"], reverse=True)
+sorted_prompts = sorted(
+    prompt_styles, key=lambda ps: stats[ps]["mean"], reverse=True)
 
 # ── Build forest plot ─────────────────────────────────────────────────────────
 
@@ -82,9 +86,9 @@ fig, ax = plt.subplots(figsize=(8, 4.5))
 y_positions = np.arange(len(sorted_prompts))
 
 for i, ps in enumerate(sorted_prompts):
-    s      = stats[ps]
+    s = stats[ps]
     colour = PROMPT_COLOURS[ps]
-    y      = y_positions[i]
+    y = y_positions[i]
 
     # Horizontal CI line
     ax.hlines(y, s["lower"], s["upper"],
@@ -154,13 +158,3 @@ for ext in ("png", "pdf"):
     print(f"Saved: {path}")
 
 plt.close(fig)
-
-print("""
-How to read this figure in your report:
-  Each row is one prompt style, sorted from highest to lowest accuracy.
-  The diamond marks the observed mean accuracy; the horizontal line spans
-  the 95% bootstrapped confidence interval. Intervals that do not overlap
-  indicate a statistically meaningful difference — confirmed formally by
-  the Cochran's Q and McNemar tests. The dashed blue line marks the
-  Baseline accuracy as a visual reference point.
-""")
