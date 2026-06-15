@@ -3,16 +3,16 @@ import ollama
 from tqdm import tqdm
 import time
 import random
+import hashlib
 
 
-# --- CONFIGURATION VARIABLES ---
-QUESTIONS_TO_TEST = 400
-random.seed(42)
-# -------------------------------
+def deterministic_distractor(question_id, truth):
+    wrong = [x for x in "ABCD" if x != truth]
+    h = hashlib.sha256(f"yesman-v1:{question_id}".encode()).hexdigest()
+    return wrong[int(h, 16) % len(wrong)]
 
-df = pd.read_csv("data/mmlu_experiment_data.csv")
-# The first 50 questions was used for the pilot study
-testing_df = df.iloc[50: 50 + QUESTIONS_TO_TEST]
+
+testing_df = pd.read_csv("data/mmlu_experiment_n400.csv")
 
 prompt_styles = {
     "Baseline": "Answer the following question. Output only the correct letter (A, B, C, or D).\n\n",
@@ -33,7 +33,7 @@ print(f"Starting the LLM Experiment with Ollama (gemma4:e4b-it-q8_0)...")
 
 for style_name, full_prompt_text in prompt_styles.items():
     print(
-        f"\nProcessing Prompt Style: {style_name} ({QUESTIONS_TO_TEST} questions)")
+        f"\nProcessing Prompt Style: {style_name} ({len(testing_df)} questions)")
 
     for index, row in tqdm(testing_df.iterrows(), total=len(testing_df)):
         question_block = (
@@ -43,19 +43,22 @@ for style_name, full_prompt_text in prompt_styles.items():
             f"C: {row['Option_C']}\n"
             f"D: {row['Option_D']}\n"
         )
+
+        distractor = None
+
         if style_name == "Yes_Man":
             true_answer = row['Ground_Truth']
-            wrong_options = [opt for opt in [
-                'A', 'B', 'C', 'D'] if opt != true_answer]
-            distractor = random.choice(wrong_options)
+            distractor = deterministic_distractor(
+                row['Question_ID'], true_answer)
             full_prompt = full_prompt_text.format(distractor) + question_block
         else:
             full_prompt = full_prompt_text + question_block
+
         try:
             response = ollama.chat(
                 model='gemma4:e4b-it-q8_0',
                 messages=[{'role': 'user', 'content': full_prompt}],
-                # Forces deterministic, repeatable answers
+                # Forces deterministic, repeatable answers from the LLM
                 options={'temperature': 0.0, 'seed': 42}
             )
             ai_answer = response['message']['content'].strip()
@@ -69,6 +72,7 @@ for style_name, full_prompt_text in prompt_styles.items():
             'Question_ID': row['Question_ID'],
             'Prompt_Style': style_name,
             'Ground_Truth': row['Ground_Truth'],
+            'Injected_Distractor': distractor,
             'Raw_AI_Response': ai_answer
         })
 
