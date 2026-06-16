@@ -1,10 +1,14 @@
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-from scipy.stats import binomtest, chi2  # ADDED: chi2 for Cochran's Q
-from itertools import combinations
-from tqdm import tqdm
 import os
+from itertools import combinations
+from pathlib import Path
+
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+from tqdm import tqdm
+from statsmodels.stats.contingency_tables import cochrans_q, mcnemar
+from statsmodels.stats.multitest import multipletests
+
 
 print("Loading evaluation matrix...")
 df = pd.read_csv("results/evaluation_matrix_pilot.csv")
@@ -21,7 +25,7 @@ alpha_omnibus = 0.05
 prompts = df_data.columns.tolist()
 pair_names = list(combinations(prompts, 2))
 n_pairs = len(pair_names)
-k_prompts = len(prompts)  # Number of conditions (5)
+k_prompts = len(prompts)
 
 power_results = {n: {pair: 0 for pair in pair_names} for n in sample_sizes}
 omnibus_power = {n: 0 for n in sample_sizes}
@@ -39,51 +43,49 @@ for n in tqdm(sample_sizes):
         indices = np.random.randint(0, n_total_questions, size=n)
         sample = data_matrix[indices, :]
 
-        c_j = sample.sum(axis=0)
-        r_i = sample.sum(axis=1)
-        total = c_j.sum()
+        q_result = cochrans_q(sample)
 
-        denominator = k_prompts * total - np.sum(r_i**2)
-
-        if denominator == 0:
-            p_q = 1.0
-        else:
-            q_stat = (k_prompts - 1) * (k_prompts *
-                                        np.sum(c_j**2) - total**2) / denominator
-            p_q = chi2.sf(q_stat, k_prompts - 1)
-
-        if p_q >= alpha_omnibus:
+        if pd.isna(q_result.pvalue) or q_result.pvalue >= alpha_omnibus:
             continue
 
         omnibus_power[n] += 1
 
-        p_vals_with_labels = []
-        for pair_idx, (col_name_1, col_name_2) in enumerate(pair_names):
+        p_raw = []
+        for col_name_1, col_name_2 in pair_names:
             idx1 = prompts.index(col_name_1)
             idx2 = prompts.index(col_name_2)
 
             vec1 = sample[:, idx1]
             vec2 = sample[:, idx2]
 
-            b = np.sum((vec1 == 1) & (vec2 == 0))
-            c = np.sum((vec1 == 0) & (vec2 == 1))
+            b00 = np.sum((vec1 == 0) & (vec2 == 0))
+            b01 = np.sum((vec1 == 0) & (vec2 == 1))
+            b10 = np.sum((vec1 == 1) & (vec2 == 0))
+            b11 = np.sum((vec1 == 1) & (vec2 == 1))
 
-            if (b + c) > 0:
-                p_val = binomtest(min(b, c), b + c, 0.5).pvalue
-            else:
-                p_val = 1.0
+            table = [[b00, b01],
+                     [b10, b11]]
 
-            p_vals_with_labels.append((p_val, (col_name_1, col_name_2)))
+            discordant = b10 + b01
+            use_exact = discordant < 25
 
-        p_vals_with_labels.sort(key=lambda x: x[0])
+            test = mcnemar(
+                table,
+                exact=use_exact,
+                correction=not use_exact
+            )
 
-        for k, (p_val, pair) in enumerate(p_vals_with_labels):
-            threshold = alpha_omnibus / (n_pairs - k)
+            p_raw.append(test.pvalue)
 
-            if p_val < threshold:
+        reject, _, _, _ = multipletests(
+            p_raw,
+            alpha=alpha_omnibus,
+            method="holm"
+        )
+
+        for k, pair in enumerate(pair_names):
+            if reject[k]:
                 power_results[n][pair] += 1
-            else:
-                break
 
 print("\n--- SIMULATED OMNIBUS POWER (COCHRAN'S Q) ---")
 for n in sample_sizes:
@@ -100,6 +102,7 @@ for pair in pair_names:
         row_str += f"{power*100:>5.1f}% | "
     print(row_str)
 
+# Plotting setup
 plt.figure(figsize=(12, 8))
 colors = plt.cm.tab10(np.linspace(0, 1, len(pair_names)))
 
