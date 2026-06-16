@@ -4,8 +4,8 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from pathlib import Path
 
-DATA_PATH  = r"C:\Users\victo\Desktop\Programmering eksamen\Statistical-evaluation-for-artificial-intelligence-and-data\results\evaluation_matrix_experiment.csv"
-OUTPUT_DIR = Path(r"C:\Users\victo\Desktop\Programmering eksamen\Statistical-evaluation-for-artificial-intelligence-and-data\figures")
+DATA_PATH = Path("results/evaluation_matrix_experiment.csv")
+OUTPUT_DIR = Path("figures")
 
 N_BOOTSTRAP = 10000
 RANDOM_SEED = 42
@@ -42,24 +42,24 @@ N = len(df)
 
 def bootstrap_ci(data, n_resamples=N_BOOTSTRAP, ci=0.95):
     n = len(data)
-    indices    = rng.integers(0, n, size=(n_resamples, n))
+    indices = rng.integers(0, n, size=(n_resamples, n))
     boot_means = data[indices].mean(axis=1)
-    alpha      = (1 - ci) / 2
-    lower      = np.percentile(boot_means, 100 * alpha)
-    upper      = np.percentile(boot_means, 100 * (1 - alpha))
+    alpha = (1 - ci) / 2
+    lower = np.percentile(boot_means, 100 * alpha)
+    upper = np.percentile(boot_means, 100 * (1 - alpha))
     return lower, upper
 
 
 stats = {}
 for ps in prompt_styles:
-    arr       = df[ps].values.astype(float)
-    lo, hi    = bootstrap_ci(arr)
+    arr = df[ps].values.astype(float)
+    lo, hi = bootstrap_ci(arr)
     stats[ps] = {"mean": arr.mean(), "lower": lo, "upper": hi}
 
 
 # ── Figure 3: Agreement matrix ────────────────────────────────────────────────
 
-n_ps  = len(prompt_styles)
+n_ps = len(prompt_styles)
 agree = np.zeros((n_ps, n_ps))
 for i, ps1 in enumerate(prompt_styles):
     for j, ps2 in enumerate(prompt_styles):
@@ -93,7 +93,8 @@ ax3.tick_params(axis="y", rotation=0)
 fig3.tight_layout()
 
 for ext in ("png", "pdf"):
-    fig3.savefig(OUTPUT_DIR / f"fig3_agreement_matrix.{ext}", dpi=300, bbox_inches="tight")
+    fig3.savefig(
+        OUTPUT_DIR / f"fig3_agreement_matrix.{ext}", dpi=300, bbox_inches="tight")
 plt.close(fig3)
 print("Saved: fig3_agreement_matrix")
 
@@ -107,17 +108,19 @@ plt.rcParams.update({
     "axes.grid":         False,
 })
 
-sorted_prompts = sorted(prompt_styles, key=lambda ps: stats[ps]["mean"], reverse=True)
-y_positions    = np.arange(len(sorted_prompts))
+sorted_prompts = sorted(
+    prompt_styles, key=lambda ps: stats[ps]["mean"], reverse=True)
+y_positions = np.arange(len(sorted_prompts))
 
 fig5, ax5 = plt.subplots(figsize=(8, 4.5))
 
 for i, ps in enumerate(sorted_prompts):
-    s      = stats[ps]
+    s = stats[ps]
     colour = PROMPT_COLOURS[ps]
-    y      = y_positions[i]
+    y = y_positions[i]
 
-    ax5.hlines(y, s["lower"], s["upper"], color=colour, linewidth=2.5, zorder=2)
+    ax5.hlines(y, s["lower"], s["upper"],
+               color=colour, linewidth=2.5, zorder=2)
     ax5.plot(s["mean"], y, marker="D", markersize=9, color=colour, zorder=3,
              markeredgecolor="white", markeredgewidth=0.8)
     ax5.text(
@@ -129,11 +132,13 @@ for i, ps in enumerate(sorted_prompts):
     )
 
 baseline_mean = stats["Baseline"]["mean"]
-ax5.axvline(baseline_mean, color="#2C6E9E", linewidth=1, linestyle="--", alpha=0.5, zorder=1)
+ax5.axvline(baseline_mean, color="#2C6E9E", linewidth=1,
+            linestyle="--", alpha=0.5, zorder=1)
 ax5.text(baseline_mean, len(sorted_prompts) - 0.05, "Baseline",
          color="#2C6E9E", fontsize=8, ha="center", va="bottom", alpha=0.7)
 
-ax5.axvline(0.25, color="grey", linewidth=1, linestyle=":", alpha=0.6, zorder=1)
+ax5.axvline(0.25, color="grey", linewidth=1,
+            linestyle=":", alpha=0.6, zorder=1)
 ax5.text(0.25, -0.6, "Chance\n(25%)", color="grey", fontsize=8,
          ha="center", va="top", alpha=0.7)
 
@@ -156,7 +161,8 @@ ax5.set_title(
 fig5.subplots_adjust(right=0.62)
 
 for ext in ("png", "pdf"):
-    fig5.savefig(OUTPUT_DIR / f"fig5_forest_plot.{ext}", dpi=300, bbox_inches="tight")
+    fig5.savefig(
+        OUTPUT_DIR / f"fig5_forest_plot.{ext}", dpi=300, bbox_inches="tight")
 plt.close(fig5)
 print("Saved: fig5_forest_plot")
 print("Done. Figures saved to:", OUTPUT_DIR)
