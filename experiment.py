@@ -12,7 +12,7 @@ def deterministic_distractor(question_id, truth):
     return wrong[int(h, 16) % len(wrong)]
 
 
-testing_df = pd.read_csv("data/mmlu_experiment_n400.csv")
+testing_df = pd.read_csv("data/mmlu_experiment_data_n400.csv")
 
 prompt_styles = {
     "Baseline": "Answer the following question. Output only the correct letter (A, B, C, or D).\n\n",
