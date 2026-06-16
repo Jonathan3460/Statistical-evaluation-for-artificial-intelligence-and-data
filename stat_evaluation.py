@@ -64,12 +64,18 @@ print("\n========== COCHRAN'S Q TEST ==========")
 print(f"Q statistic = {q_result.statistic:.4f}")
 print(f"p-value     = {q_result.pvalue:.6g}")
 
-if q_result.pvalue < ALPHA:
-    print("\nReject H0")
-    print("At least one prompt style differs.")
-else:
+if pd.isna(q_result.pvalue):
+    raise ValueError(
+        "Cochran's Q returned NaN; check for degenerate or invalid paired data."
+    )
+
+if q_result.pvalue >= ALPHA:
     print("\nFail to reject H0")
-    print("No significant differences detected.")
+    print("Gatekeeper enforced: pairwise McNemar tests were not run.")
+    raise SystemExit(0)
+
+print("\nReject H0")
+print("At least one prompt style differs. Proceeding to gated pairwise tests.")
 
 
 # -----------------------------

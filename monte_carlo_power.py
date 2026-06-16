@@ -131,6 +131,6 @@ plt.legend(bbox_to_anchor=(1.04, 1), loc="upper left", fontsize=10)
 plt.tight_layout()
 
 os.makedirs("results", exist_ok=True)
-plot_filename = "results/monte_carlo_power_curve_detailed.png"
+plot_filename = "results/monte_carlo_power_curve.png"
 plt.savefig(plot_filename, dpi=300, bbox_inches="tight")
 print(f"\nSuccess! Detailed power curves saved to '{plot_filename}'")

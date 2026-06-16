@@ -34,4 +34,4 @@ print(df[['Prompt_Style', 'Ground_Truth', 'Extracted_Answer', 'Is_Correct']].hea
 eval_matrix = df.pivot(
     index='Question_ID', columns='Prompt_Style', values='Is_Correct')
 
-eval_matrix.to_csv("results/evaluation_matrix.csv")
+eval_matrix.to_csv("results/evaluation_matrix_experiment.csv")
