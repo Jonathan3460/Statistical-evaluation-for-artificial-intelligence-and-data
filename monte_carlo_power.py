@@ -7,8 +7,7 @@ from tqdm import tqdm
 import os
 
 print("Loading evaluation matrix...")
-# Make sure this matches your file
-df = pd.read_csv("results/evaluation_matrix_experiment.csv")
+df = pd.read_csv("results/evaluation_matrix_pilot.csv")
 
 if 'Question_ID' in df.columns:
     df_data = df.drop(columns='Question_ID')
@@ -25,7 +24,6 @@ n_pairs = len(pair_names)
 k_prompts = len(prompts)  # Number of conditions (5)
 
 power_results = {n: {pair: 0 for pair in pair_names} for n in sample_sizes}
-# ADDED: Track the power of Cochran's Q itself
 omnibus_power = {n: 0 for n in sample_sizes}
 
 np.random.seed(42)
