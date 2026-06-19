@@ -1,13 +1,10 @@
 from itertools import combinations
 from pathlib import Path
-
 import pandas as pd
-
 from statsmodels.stats.contingency_tables import (
     cochrans_q,
     mcnemar
 )
-
 from statsmodels.stats.multitest import multipletests
 
 

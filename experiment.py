@@ -3,15 +3,9 @@ import ollama
 from tqdm import tqdm
 import time
 import random
-import hashlib
 
 
-def deterministic_distractor(question_id, truth):
-    wrong = [x for x in "ABCD" if x != truth]
-    h = hashlib.sha256(f"yesman-v1:{question_id}".encode()).hexdigest()
-    return wrong[int(h, 16) % len(wrong)]
-
-
+random.seed(42)
 testing_df = pd.read_csv("data/mmlu_experiment_data_n400.csv")
 
 prompt_styles = {
@@ -48,8 +42,9 @@ for style_name, full_prompt_text in prompt_styles.items():
 
         if style_name == "Yes_Man":
             true_answer = row['Ground_Truth']
-            distractor = deterministic_distractor(
-                row['Question_ID'], true_answer)
+            wrong_options = [opt for opt in [
+                'A', 'B', 'C', 'D'] if opt != true_answer]
+            distractor = random.choice(wrong_options)
             full_prompt = full_prompt_text.format(distractor) + question_block
         else:
             full_prompt = full_prompt_text + question_block
@@ -72,7 +67,6 @@ for style_name, full_prompt_text in prompt_styles.items():
             'Question_ID': row['Question_ID'],
             'Prompt_Style': style_name,
             'Ground_Truth': row['Ground_Truth'],
-            'Injected_Distractor': distractor,
             'Raw_AI_Response': ai_answer
         })
 
