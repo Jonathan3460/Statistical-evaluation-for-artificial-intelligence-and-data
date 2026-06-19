@@ -105,7 +105,7 @@ for prompt_a, prompt_b in combinations(prompt_columns, 2):
     test = mcnemar(
         table,
         exact=use_exact,
-        correction=not use_exact
+        correction=use_exact
     )
 
     results.append({
