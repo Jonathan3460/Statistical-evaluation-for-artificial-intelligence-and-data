@@ -35,8 +35,8 @@ The experiment script expects Ollama to be installed locally and the model
 python download_mmlu.py
 python experiment.py
 python grader.py
-python stat_evaluation.py
 python monte_carlo_power.py
+python stat_evaluation.py
 python visualisation/visualisation.py
 ```
 
