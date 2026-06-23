@@ -1,0 +1,7 @@
+datasets
+matplotlib
+numpy
+ollama
+pandas
+statsmodels
+tqdm
