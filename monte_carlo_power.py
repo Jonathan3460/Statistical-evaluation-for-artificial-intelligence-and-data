@@ -109,13 +109,14 @@ colors = plt.cm.tab10(np.linspace(0, 1, len(pair_names)))
 for idx, pair in enumerate(pair_names):
     ps = [power_results[n][pair] / n_iterations for n in sample_sizes]
 
+    label_name = f"{pair[0]} vs {pair[1]}"
+
     if max(ps) > 0.05:
-        label_name = f"{pair[0]} vs {pair[1]}"
         plt.plot(sample_sizes, ps, marker='o', markersize=4,
                  linewidth=2, color=colors[idx], label=label_name)
     else:
         plt.plot(sample_sizes, ps, linestyle=':',
-                 linewidth=1, color='gray', alpha=0.5)
+                 linewidth=1, color='gray', alpha=0.5, label=label_name)
 
 plt.axhline(y=0.80, color='red', linestyle='--',
             linewidth=2.5, label='80% Target Power')

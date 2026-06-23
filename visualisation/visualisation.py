@@ -101,8 +101,6 @@ ax.axvline(
     alpha=0.5,
 )
 
-ax.axvline(0.25, color="grey", linewidth=1, linestyle=":", alpha=0.6)
-
 ax.set_yticks(y_positions)
 ax.set_yticklabels([PROMPT_LABELS[prompt] for prompt in ordered.index])
 ax.tick_params(axis="y", length=0)
