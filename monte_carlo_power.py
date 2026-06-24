@@ -72,7 +72,7 @@ for n in tqdm(sample_sizes):
             test = mcnemar(
                 table,
                 exact=use_exact,
-                correction=not use_exact
+                correction=use_exact
             )
 
             p_raw.append(test.pvalue)
